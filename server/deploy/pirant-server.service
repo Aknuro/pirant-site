@@ -1,0 +1,20 @@
+# /etc/systemd/system/pirant-server.service
+[Unit]
+Description=PIRANT Kazakhstan API
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=pirant
+WorkingDirectory=/var/www/pirant/server
+EnvironmentFile=/var/www/pirant/server/.env
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/var/www/pirant/server/uploads
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white font-sans text-ink antialiased; }
+  html[lang='kk'] body { font-family: 'Noto Sans', system-ui, 'Segoe UI', sans-serif; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand; }
+}
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-4 sm:px-6 lg:px-8; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-colors; }
+  .btn-accent { @apply btn bg-accent text-white hover:bg-accent-dark; }
+  .btn-ghost { @apply btn border border-white/40 text-white hover:bg-white/10; }
+  .btn-outline { @apply btn border border-navy/20 text-navy hover:bg-brand-soft; }
+  /* Панель управления */
+  .btn-ink { @apply btn bg-navy text-white hover:bg-navy-900; }
+  .btn-danger { @apply btn border border-red-200 bg-white text-red-700 hover:bg-red-50; }
+  .btn-sm { @apply !px-3 !py-2 !text-xs; }
+  .icon-btn { @apply inline-grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-navy/15 bg-white text-navy transition-colors hover:bg-brand-soft disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:bg-white; }
+  .icon-btn-danger { @apply text-red-700 hover:bg-red-50; }
+  .adm-input { @apply w-full rounded-lg border border-navy/20 bg-white px-3 py-2.5 text-sm text-ink outline-none placeholder:text-ink/40 focus:border-brand focus:ring-2 focus:ring-brand/15; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
