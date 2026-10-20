@@ -1,5 +1,6 @@
 import { useMemo, useState, type FormEvent } from 'react';
 import { ChevronDown, ChevronUp, ImagePlus, Plus, Trash2, Upload } from 'lucide-react';
+import { assetUrl } from '../../assetUrl';
 import { ui } from '../../i18n/ui';
 import { store, useSite } from '../../store/site';
 import { clone, norm, uid } from '../../store/utils';
@@ -51,7 +52,7 @@ export default function Partners() {
               <li key={p.id} className="rounded-xl border border-navy/10 bg-white p-3">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="grid h-14 w-24 shrink-0 place-items-center overflow-hidden rounded-lg border border-navy/10 bg-white p-1.5">
-                    {p.logo ? <img src={p.logo} alt="" className="max-h-full max-w-full object-contain" /> : <ImagePlus size={18} className="text-navy/35" />}
+                    {p.logo ? <img src={assetUrl(p.logo)} alt="" className="max-h-full max-w-full object-contain" /> : <ImagePlus size={18} className="text-navy/35" />}
                   </span>
                   <div className="min-w-[160px] flex-1"><TextInput value={p.name} onChange={(e) => setP(p.id, { name: e.target.value })} placeholder="Название" aria-label="Название партнёра" /></div>
                   <div className="w-44"><Select value={p.category} onChange={(e) => setP(p.id, { category: e.target.value as PartnerCategory })} aria-label="Категория">{CATS.map((c) => <option key={c} value={c}>{catName(c)}</option>)}</Select></div>

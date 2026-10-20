@@ -1,3 +1,4 @@
+import { assetUrl } from '../assetUrl';
 import { useSite } from '../store/site';
 import { useLang } from '../i18n/LanguageContext';
 import Icon from './Icon';
@@ -24,7 +25,7 @@ export default function AboutBlock() {
             ))}
           </ul>
         </div>
-        <img src="/images/about-building.webp" alt="PIRANT Kazakhstan" loading="lazy" className="h-full max-h-[560px] w-full rounded-2xl object-cover" />
+        <img src={assetUrl('/images/about-building.webp')} alt="PIRANT Kazakhstan" loading="lazy" className="h-full max-h-[560px] w-full rounded-2xl object-cover" />
       </div>
     </section>
   );

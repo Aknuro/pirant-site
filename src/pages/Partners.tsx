@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import PageHead from '../components/PageHead';
+import { assetUrl } from '../assetUrl';
 import { useSite } from '../store/site';
 import { useLang } from '../i18n/LanguageContext';
 import type { ui } from '../i18n/ui';
@@ -25,7 +26,7 @@ export default function Partners() {
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((p) => (
             <li key={p.id} className="rounded-xl border border-navy/10 bg-white p-5">
-              <div className="flex h-14 items-center text-xl font-extrabold text-navy">{p.logo ? <img src={p.logo} alt={p.name} loading="lazy" className="max-h-12 max-w-[70%] object-contain" /> : p.name}</div>
+              <div className="flex h-14 items-center text-xl font-extrabold text-navy">{p.logo ? <img src={assetUrl(p.logo)} alt={p.name} loading="lazy" className="max-h-12 max-w-[70%] object-contain" /> : p.name}</div>
               <span className="mt-2 inline-block rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold text-brand">{t(`cat_${p.category}` as keyof typeof ui)}</span>
               <p className="mt-3 text-sm text-ink/70">{l(p.description)}</p>
             </li>

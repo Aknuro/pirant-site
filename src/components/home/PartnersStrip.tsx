@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { assetUrl } from '../../assetUrl';
 import { useLang } from '../../i18n/LanguageContext';
 import { useSite } from '../../store/site';
 
@@ -14,7 +15,7 @@ export default function PartnersStrip() {
           {list.map((p) => (
             <li key={p.id}>
               <Link to="/partners" className="flex h-20 items-center justify-center rounded-lg border border-navy/10 px-3 text-center font-extrabold text-navy/80 hover:border-brand hover:text-brand">
-                {p.logo ? <img src={p.logo} alt={p.name} loading="lazy" className="max-h-10 max-w-full object-contain" /> : p.name}
+                {p.logo ? <img src={assetUrl(p.logo)} alt={p.name} loading="lazy" className="max-h-10 max-w-full object-contain" /> : p.name}
               </Link>
             </li>
           ))}

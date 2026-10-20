@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { assetUrl } from '../../assetUrl';
 import { useDirections } from '../../store/hooks';
 import { useLang } from '../../i18n/LanguageContext';
 import ServiceIcon from '../ServiceIcon';
@@ -15,7 +16,7 @@ export default function ServicesGrid() {
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <Link key={s.id} to={`/services/${s.id}`} className="group flex flex-col overflow-hidden rounded-xl bg-white transition-shadow hover:shadow-lg">
-              <img src={s.image} alt="" loading="lazy" className="aspect-[16/10] w-full object-cover" />
+              <img src={assetUrl(s.image)} alt="" loading="lazy" className="aspect-[16/10] w-full object-cover" />
               <div className="flex flex-1 flex-col p-5">
                 <ServiceIcon name={s.icon} size={26} className="text-brand" />
                 <h3 className="mt-3 text-lg font-bold leading-snug text-navy">{l(s.title)}</h3>

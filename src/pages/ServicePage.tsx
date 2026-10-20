@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import { assetUrl } from '../assetUrl';
 import { Check } from 'lucide-react';
 import CtaBand from '../components/CtaBand';
 import Gallery from '../components/Gallery';
@@ -31,7 +32,7 @@ export default function ServicePage() {
     <>
       {!c.published && <p className="bg-accent px-4 py-2 text-center text-sm font-semibold text-white">{t('draftNotice')}</p>}
       <section className="relative isolate overflow-hidden bg-navy text-white">
-        {c.hero && <img src={c.hero} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-35" />}
+        {c.hero && <img src={assetUrl(c.hero)} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover opacity-35" />}
         <div className="container-site py-16 lg:py-24">
           <Link to="/#services" className="text-sm text-white/70 hover:text-white">← {t('allServices')}</Link>
           <h1 className="mt-3 max-w-4xl text-3xl font-extrabold leading-tight sm:text-5xl">{l(c.title)}</h1>
@@ -65,7 +66,7 @@ export default function ServicePage() {
             <div className={`mt-6 grid gap-4 ${colsCls[b.cols ?? 3]}`}>
               {b.items.map((it, n) => (
                 <article key={n} className="overflow-hidden rounded-xl border border-navy/10 bg-white">
-                  {it.image && <img src={it.image} alt={tr(it.title)} loading="lazy" className={`${b.ratio ?? 'aspect-[16/10]'} w-full object-cover`} />}
+                  {it.image && <img src={assetUrl(it.image)} alt={tr(it.title)} loading="lazy" className={`${b.ratio ?? 'aspect-[16/10]'} w-full object-cover`} />}
                   <div className="p-5">
                     {it.icon && <Icon name={it.icon} size={26} className="text-brand" />}
                     <h3 className={`font-bold text-navy ${it.icon ? 'mt-3' : ''}`}>{tr(it.title)}</h3>
@@ -106,7 +107,7 @@ export default function ServicePage() {
               {vendors.map((p) => (
                 <li key={p.id}>
                   <Link to="/partners" title={p.name} className="flex h-16 items-center justify-center rounded-lg border border-navy/10 px-3 text-center text-sm font-extrabold text-navy/80 hover:border-brand hover:text-brand">
-                    {p.logo ? <img src={p.logo} alt={p.name} loading="lazy" className="max-h-8 max-w-full object-contain" /> : p.name}
+                    {p.logo ? <img src={assetUrl(p.logo)} alt={p.name} loading="lazy" className="max-h-8 max-w-full object-contain" /> : p.name}
                   </Link>
                 </li>
               ))}

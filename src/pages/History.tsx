@@ -1,4 +1,5 @@
 import PageHead from '../components/PageHead';
+import { assetUrl } from '../assetUrl';
 import { useSite } from '../store/site';
 import { useLang } from '../i18n/LanguageContext';
 
@@ -20,7 +21,7 @@ export default function History() {
               <div className="space-y-4 md:border-l-2 md:border-brand/30 md:pl-8">
                 {items.filter((n) => n.year === y).map((n) => (
                   <article key={n.id} className="grid overflow-hidden rounded-xl border border-navy/10 bg-white sm:grid-cols-[220px_1fr]">
-                    <img src={n.image} alt="" loading="lazy" className="h-40 w-full object-cover sm:h-full" />
+                    <img src={assetUrl(n.image)} alt="" loading="lazy" className="h-40 w-full object-cover sm:h-full" />
                     <div className="p-5"><h2 className="font-bold text-navy">{l(n.title)}</h2><p className="mt-2 text-sm text-ink/70">{l(n.text)}</p></div>
                   </article>
                 ))}

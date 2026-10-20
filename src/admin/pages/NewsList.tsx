@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Pencil, Plus, Trash2 } from 'lucide-react';
+import { assetUrl } from '../../assetUrl';
 import { fmtDate, norm } from '../../store/utils';
 import { store, useSite } from '../../store/site';
 import { EmptyState, GLink, PageTitle, Panel, Pill, TextInput, useConfirm, useToast } from '../ui';
@@ -24,7 +25,7 @@ export default function NewsList() {
           <ul className="divide-y divide-navy/10">
             {rows.map((n) => (
               <li key={n.id} className="flex items-center gap-4 py-3 first:pt-0 last:pb-0">
-                {n.image ? <img src={n.image} alt="" className="h-14 w-20 shrink-0 rounded-md object-cover" /> : <span className="h-14 w-20 shrink-0 rounded-md bg-brand-soft" />}
+                {n.image ? <img src={assetUrl(n.image)} alt="" className="h-14 w-20 shrink-0 rounded-md object-cover" /> : <span className="h-14 w-20 shrink-0 rounded-md bg-brand-soft" />}
                 <div className="min-w-0 flex-1">
                   <GLink to={`/admin/news/${n.id}`} className="block truncate font-semibold text-navy hover:text-brand">{n.title.ru}</GLink>
                   <span className="text-xs text-ink/55">{fmtDate(n.date)}</span>

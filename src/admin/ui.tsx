@@ -7,6 +7,7 @@ import { AlertTriangle, CheckCircle2, ChevronDown, ChevronUp, ImagePlus, Plus, T
 import Icon, { iconList } from '../components/Icon';
 import type { Localized } from '../types';
 import { processImage, type UploadedImage } from '../store/utils';
+import { assetUrl } from '../assetUrl';
 
 /* ================================================================== Тосты */
 type ToastKind = 'success' | 'error';
@@ -301,7 +302,7 @@ export function ImageField({ label, value, onChange, hint, aspect = 'aspect-[16/
       <span className="mb-1 block text-sm font-semibold text-navy">{label}</span>
       <div className="flex items-start gap-3">
         <div className={`grid w-36 shrink-0 place-items-center overflow-hidden rounded-lg border border-dashed border-navy/25 bg-brand-soft/60 ${aspect}`}>
-          {value ? <img src={value} alt="" className="h-full w-full object-cover" /> : <ImagePlus size={22} className="text-navy/40" />}
+          {value ? <img src={assetUrl(value)} alt="" className="h-full w-full object-cover" /> : <ImagePlus size={22} className="text-navy/40" />}
         </div>
         <div className="flex flex-col items-start gap-2">
           <button type="button" className="btn-outline btn-sm" onClick={() => input.current?.click()}><Upload size={14} />{value ? 'Заменить' : 'Загрузить'}</button>
@@ -338,7 +339,7 @@ export function GalleryEditor({ items, onChange }: { items: { src: string; capti
         <ul className="grid gap-3 sm:grid-cols-2">
           {items.map((g, i) => (
             <li key={i} className="flex gap-3 rounded-xl border border-navy/10 p-3">
-              <img src={g.src} alt="" className="h-20 w-28 shrink-0 rounded-lg object-cover" />
+              <img src={assetUrl(g.src)} alt="" className="h-20 w-28 shrink-0 rounded-lg object-cover" />
               <div className="flex min-w-0 flex-1 flex-col gap-2">
                 <TextInput value={g.caption} placeholder="Подпись" aria-label={`Подпись к изображению ${i + 1}`} onChange={(e) => onChange(items.map((x, k) => (k === i ? { ...x, caption: e.target.value } : x)))} />
                 <div className="flex gap-1">

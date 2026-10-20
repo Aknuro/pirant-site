@@ -1,5 +1,6 @@
 import { ChevronDown, ChevronUp, Copy, ExternalLink, Pencil, Plus, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { assetUrl } from '../../assetUrl';
 import ServiceIcon from '../../components/ServiceIcon';
 import { clone, fmtDate, nowISO, plural } from '../../store/utils';
 import { store, useSite } from '../../store/site';
@@ -50,7 +51,7 @@ export default function Directions() {
                   </td>
                   <td className="px-2 py-3">
                     <div className="flex items-center gap-3">
-                      {d.image ? <img src={d.image} alt="" className="h-12 w-16 shrink-0 rounded-md object-cover" /> : <span className="grid h-12 w-16 shrink-0 place-items-center rounded-md bg-brand-soft text-brand"><ServiceIcon name={d.icon} size={22} /></span>}
+                      {d.image ? <img src={assetUrl(d.image)} alt="" className="h-12 w-16 shrink-0 rounded-md object-cover" /> : <span className="grid h-12 w-16 shrink-0 place-items-center rounded-md bg-brand-soft text-brand"><ServiceIcon name={d.icon} size={22} /></span>}
                       <div className="min-w-0">
                         <Link to={`/admin/directions/${d.id}`} className="block font-semibold text-navy hover:text-brand"><span className="text-accent-dark">{i + 1}.</span> {d.title.ru}</Link>
                         <span className="text-xs text-ink/55">{d.blocks.length} {plural(d.blocks.length, ['раздел', 'раздела', 'разделов'])} · {d.gallery.length} изобр. · /services/{d.id}</span>
