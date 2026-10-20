@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://pirant-site-afup-1m8ho29hm-aknurs-projects-605d5f35.vercel.app/api/:path*"
+    },
+    {
+      "source": "/uploads/:path*",
+      "destination": "https://pirant-site-afup-1m8ho29hm-aknurs-projects-605d5f35.vercel.app/uploads/:path*"
+    }
+  ]
+}
